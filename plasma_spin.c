@@ -142,7 +142,9 @@ plasma_spin_nprocs_init (void)
 }
 
 
+#if !defined(__GNUC__) || defined(__GNUC_STDC_INLINE__) || defined(__clang__)
 C99INLINE
+#endif
 static void
 plasma_spin_pause_yield_adaptive (const uint32_t distance, const int callcount)
 {

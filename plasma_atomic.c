@@ -336,6 +336,7 @@ plasma_atomic_compare_exchange_n_ptr (void ** const ptr,
                                       const enum memory_order success_memmodel,
                                       const enum memory_order failure_memmodel);
 
+#ifndef plasma_atomic_not_implemented_64
 __attribute_regparm__((3))
 extern inline
 bool
@@ -353,6 +354,7 @@ plasma_atomic_compare_exchange_n_64 (uint64_t * const ptr,
                                      const bool weak,
                                      const enum memory_order success_memmodel,
                                      const enum memory_order failure_memmodel);
+#endif
 
 __attribute_regparm__((3))
 extern inline
@@ -386,6 +388,7 @@ void *
 plasma_atomic_exchange_n_ptr (void ** const ptr, void * const newval,
                               const enum memory_order memmodel);
 
+#ifndef plasma_atomic_not_implemented_64
 __attribute_regparm__((3))
 extern inline
 uint64_t
@@ -395,6 +398,7 @@ __attribute_regparm__((3))
 uint64_t
 plasma_atomic_exchange_n_64 (uint64_t * const ptr, const uint64_t newval,
                              const enum memory_order memmodel);
+#endif
 
 __attribute_regparm__((3))
 extern inline

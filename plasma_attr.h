@@ -487,6 +487,7 @@
 
 /*
  * Symbol visibility attributes:
+ * http://gcc.gnu.org/wiki/Visibility
  * http://docs.oracle.com/cd/E19205-01/820-4155/c.html
  * http://docs.sun.com/source/820-4155/c.html
  *   (Oracle/Sun Studio 12 C compiler supports __attribute__)
