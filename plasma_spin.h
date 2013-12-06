@@ -213,9 +213,10 @@ PLASMA_ATTR_Pragma_once
   #include <poll.h>    /* might also need _XOPEN_SOURCE=500 or better on _AIX */
   #if defined(_POSIX_PRIORITY_SCHEDULING) && (_POSIX_PRIORITY_SCHEDULING-0)!= -1
   #include <sched.h>
-  #define plasma_spin_yield() do {if (sched_yield()!=0) poll(NULL,0,1);}while(0)
+  #define plasma_spin_yield() \
+    do {if (sched_yield()!=0) (void)poll(NULL, 0, 1); } while(0)
   #else
-  #define plasma_spin_yield() poll(NULL, 0, 1)
+  #define plasma_spin_yield() (void)poll(NULL, 0, 1)
   #endif
 #endif
 
@@ -232,7 +233,7 @@ PLASMA_ATTR_Pragma_once
     #define plasma_spin_yield() \
     do {if (thread_switch(THREAD_NULL,SWITCH_OPTION_DEPRESS,1) != KERN_SUCCESS \
             && sched_yield() != 0) \
-            poll(NULL, 0, 1); \
+            (void)poll(NULL, 0, 1); \
     } while (0) /* (untested!) */
   #endif
 #endif
