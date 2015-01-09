@@ -290,7 +290,7 @@ PLASMA_ATTR_Pragma_once
 
 /* AIX xlc byte swapping intrinsics take pointer arguments; use in inline func
  * https://publib.boulder.ibm.com/infocenter/comphelp/v8v101/index.jsp?topic=%2Fcom.ibm.xlcpp8a.doc%2Fcompiler%2Fref%2Fbif_int.htm
- * (assembly not provided here for GCC < 4.3 (without __builtin_bswap_*()))
+ * (assembly not provided here for GCC < 4.3 (without __builtin_bswap*()))
  * http://cr.illumos.org/~webrev/skiselkov/edonr/usr/src/common/crypto/edonr/edonr_byteorder.h.html */
 
   #define plasma_endian_swap16p_funcmacro(x)  __load2r(x)
@@ -358,6 +358,26 @@ PLASMA_ATTR_Pragma_once
   #define plasma_endian_swap32_funcmacro(x)   __builtin_bswap32(x)
   #undef  plasma_endian_swap64_funcmacro
   #define plasma_endian_swap64_funcmacro(x)   __builtin_bswap64(x)
+
+#endif
+
+
+#ifdef __clang__
+
+  #if __has_builtin(__builtin_bswap16)
+  #undef  plasma_endian_swap16_funcmacro
+  #define plasma_endian_swap16_funcmacro(x)   __builtin_bswap16(x)
+  #endif
+
+  #if __has_builtin(__builtin_bswap32)
+  #undef  plasma_endian_swap32_funcmacro
+  #define plasma_endian_swap32_funcmacro(x)   __builtin_bswap32(x)
+  #endif
+
+  #if __has_builtin(__builtin_bswap64)
+  #undef  plasma_endian_swap64_funcmacro
+  #define plasma_endian_swap64_funcmacro(x)   __builtin_bswap64(x)
+  #endif
 
 #endif
 
