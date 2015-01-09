@@ -134,6 +134,14 @@ PLASMA_ATTR_Pragma_once
 #error "both __BIG_ENDIAN__ and __LITTLE_ENDIAN__ defined"
 #endif
 
+#ifdef __LITTLE_ENDIAN__
+  #define PLASMA_ENDIAN_LITTLE  1
+  #define PLASMA_ENDIAN_BIG     0
+#else /* __BIG_ENDIAN__ */
+  #define PLASMA_ENDIAN_LITTLE  0
+  #define PLASMA_ENDIAN_BIG     1
+#endif
+
 /* gcc 4.6+ http://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html
  * http://publib.boulder.ibm.com/infocenter/macxhelp/v6v81/index.jsp?topic=%2Fcom.ibm.vacpp6m.doc%2Fcompiler%2Fref%2Frumacros.htm
  */
