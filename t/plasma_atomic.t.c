@@ -145,7 +145,8 @@ plasma_atomic_t_relaxed_32 (void)
     }
     rc &= PLASMA_TEST_COND(x32 == -1);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -165,7 +166,8 @@ plasma_atomic_t_relaxed_32 (void)
     }
     rc &= PLASMA_TEST_COND(x32 == 0);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -338,7 +340,8 @@ plasma_atomic_t_relaxed_64 (void)
     }
     rc &= PLASMA_TEST_COND(x64 == -1LL);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -358,7 +361,8 @@ plasma_atomic_t_relaxed_64 (void)
     }
     rc &= PLASMA_TEST_COND(x64 == 0);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -537,7 +541,8 @@ plasma_atomic_t_relaxed_ptr (void)
     }
     rc &= PLASMA_TEST_COND(x64 == (void *)(intptr_t)-1LL);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -560,7 +565,8 @@ plasma_atomic_t_relaxed_ptr (void)
     }
     rc &= PLASMA_TEST_COND(x64 == 0);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -717,7 +723,8 @@ plasma_atomic_t_relaxed_ptr (void)
     }
     rc &= PLASMA_TEST_COND(x32 == (void *)(intptr_t)-1);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
@@ -737,7 +744,8 @@ plasma_atomic_t_relaxed_ptr (void)
     }
     rc &= PLASMA_TEST_COND(x32 == 0);
 
-  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3)
+  #if !defined(__IBMC__) || !defined(__OPTIMIZE__) || !(__OPTIMIZE__ == 3) \
+   || (defined(__xlC__) && __xlC__ >= 0x0d01) /*(fixed in xlC 13.1)*/
     /* XXX: xlc -O3 bug optimizes away load-and-reserve, so no reservation taken
      *      and store-conditional always fails (and we loop on lost reservation)
      */
