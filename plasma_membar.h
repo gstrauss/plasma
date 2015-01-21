@@ -716,8 +716,18 @@ typedef void (__kuser_dmb_t)(void);
 #ifdef __cplusplus
 #if __cplusplus >= 201103L \
  || HAVE_ATOMIC
- /* XXX: ... add atomic header detection for other C++ compilers ... */
 #include <atomic>
+/* (avoid 'using namespace std;' in header)
+ * ('using std::atomic_int;' and other std::atomic_* typedefs not provided) */
+using std::memory_order;
+using std::memory_order_relaxed;
+using std::memory_order_consume;
+using std::memory_order_acquire;
+using std::memory_order_release;
+using std::memory_order_acq_rel;
+using std::memory_order_seq_cst;
+using std::atomic_signal_fence;
+using std::atomic_thread_fence;
 #endif
 #else
 #if __STDC_VERSION__ >= 201112L \
@@ -726,9 +736,14 @@ typedef void (__kuser_dmb_t)(void);
   *   http://gcc.gnu.org/ml/gcc-help/2011-01/msg00372.html
   *   discussion thread for whether compiler or libc should provide stdatomic.h:
   *   http://sourceware.org/ml/libc-alpha/2009-08/msg00025.html */
- /* XXX: ... add stdatomic.h header detection for other C compilers ... */
 #ifndef __STDC_NO_ATOMICS__  /* C11 compiler can indicate absense of atomics */
+/* gcc 4.8 defined __STDC_VERSION__ = 201112L, but did not provide stdatomic.h
+ * and also did not define __STDC_NO_ATOMICS__
+ * http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58016
+ * http://gcc.gnu.org/gcc-4.9/changes.html */
+#if __has_include(<stdatomic.h>) || !defined(__GNUC__) || __GNUC_PREREQ(4,9)
 #include <stdatomic.h>
+#endif
 #endif
 #endif
 #endif
