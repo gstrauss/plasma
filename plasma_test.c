@@ -20,7 +20,9 @@
  */
 
 /* _XOPEN_SOURCE 600 for pthread_barrier_t */
+#ifndef _XOPEN_SOURCE
 #define _XOPEN_SOURCE 600
+#endif
 
 #include "plasma_test.h"
 #include "plasma_attr.h"

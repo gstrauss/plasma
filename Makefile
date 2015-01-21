@@ -160,8 +160,9 @@ _DEPENDENCIES_ON_ALL_HEADERS_Makefile:= $(wildcard *.h) Makefile
 # C99 and POSIX.1-2001 (SUSv3 _XOPEN_SOURCE=600)
 # C99 and POSIX.1-2008 (SUSv4 _XOPEN_SOURCE=700)
 STDC99?=-std=c99
-POSIX_STD?=-D_XOPEN_SOURCE=600
-CFLAGS+=$(STDC99) $(POSIX_STD)
+STDC11?=-std=c11
+POSIX_STD?=-D_XOPEN_SOURCE=700
+CFLAGS+=$(STDC11) $(POSIX_STD)
 # position independent code (for shared libraries)
 FPIC?=-fpic
 # link shared library
