@@ -532,9 +532,15 @@
 
 #if __has_builtin(__builtin_constant_p) \
  || __GNUC_PREREQ(3,1)/*(check major,minor ver; actually supported in 3.0.1)*/\
- || defined(__IBMC__) || defined(__IBMCPP__) \
+ || defined(__IBMC__) || (defined(__IBMCPP__) && __IBMCPP__ >= 1310) \
  || (defined(__SUNPRO_C)  && __SUNPRO_C  >= 0x5100) /* Sun Studio 12.1 C   */
 #define plasma_attr_has_builtin_constant_p
+/* IBM xlC (C++) compiler has a bug in 32-bit compilation on constant 8-byte
+ * value via initialization assignment (and not simply integer literal)
+ * which is fixed in XL C/C++ 12.1 March 2014 PTF and later (XL C/C++ 13.1)
+ * [PMR 77049,7TD,000] IBM notes that __builtin_constant_p() is not officially
+ * documented and was originally intended for compiling Linux headers with
+ * XL C/C++ for Linux */
 #else
 #ifndef __builtin_constant_p
 #define __builtin_constant_p(x) 0
