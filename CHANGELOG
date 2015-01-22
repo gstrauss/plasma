@@ -1,0 +1,39 @@
+plasma change log
+
+plasma v0.10 (2015.01.22)
+- create plasma project from https://github.com/gstrauss/mcdb
+- plasma_atomic: initial support for gcc on POWER cpu
+- plasma_atomic: tweaks to asm for xlC on POWER cpu
+- plasma_membar: C11 stdatomic.h and C++11 atomic header detection
+- plasma_endian: clang has __builtin_bswap*
+- plasma_attr: _builtin_constant_p() and xlC
+- plasma_spin: quiet Coverity warnings
+- Makefile: default to -std=c11 and -D_XOPEN_SOURCE=700
+
+mcdb v0.09 (2013.11.15)
+- plasma_atomic:
+  - C11/C++11 additions
+  - Sun Studio and IBM xlC inline assembly for atomics in 32-bit compile
+- plasma_stdtypes: C11/C++11 alignof and alignas
+- plasma_attr: attribute additions
+- plasma_membar.h: Linux kernel user helpers for ARM
+- plasma/plasma_spin: plasma_spin_tktlock and plasma_spin_taglock
+- New plasma/* components:
+- plasma/plasma_endian.h   - byteorder endian conversion macros
+- plasma/plasma_ident.h    - portability macros for ident string
+- plasma/plasma_sysconf.h  - system configuration info
+- plasma/plasma_test.h     - basic test framework support
+- plasma/t/petersons_algo.c  - Peterson's algorithm for mutual exclusion
+- plasma/t/plasma_atomic.t.c - plasma_atomic.[ch] tests
+
+mcdb v0.08 (2013.06.08)
+- plasma/* - portability macros for compiler and hardware micro operations
+- plasma/plasma_atomic.h   - atomic operations
+- plasma/plasma_attr.h     - code attributes
+- plasma/plasma_feature.h  - OS and architecture features
+- plasma/plasma_membar.h   - memory barriers
+- plasma/plasma_spin.h     - spin loop components
+- plasma/plasma_stdtypes.h - standard types
+
+mcdb v0.07 (2013.03.31)
+- plasma/* - portability macros for compiler and hardware micro operations
