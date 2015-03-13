@@ -34,6 +34,7 @@ PLASMA_ATTR_Pragma_once
 
 #if defined(__APPLE__) && defined(__MACH__)
 #include <libkern/OSAtomic.h>
+#include <sched.h>
 #endif
 
 #ifndef PLASMA_SPIN_C99INLINE
