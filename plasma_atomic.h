@@ -1730,7 +1730,7 @@ plasma_atomic_fetch_and_u32 (uint32_t * const ptr, uint32_t andval,
                                                cast)
 #endif
 
-__attribute_nonnull__;
+__attribute_nonnull__
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
