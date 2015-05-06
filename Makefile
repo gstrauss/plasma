@@ -247,16 +247,16 @@ $(PREFIX_USR)/lib$(LIB_BITS)/libplasma.so: libplasma.so \
 	&& /bin/mv -f $@.$$$$ $@
 
 .PHONY: install-headers install install-doc install-plasma-headers
-install-plasma-headers: plasma/plasma_atomic.h \
-                        plasma/plasma_attr.h \
-                        plasma/plasma_endian.h \
-                        plasma/plasma_feature.h \
-                        plasma/plasma_ident.h \
-                        plasma/plasma_membar.h \
-                        plasma/plasma_spin.h \
-                        plasma/plasma_stdtypes.h \
-                        plasma/plasma_sysconf.h \
-                        plasma/plasma_test.h
+install-plasma-headers: plasma_atomic.h \
+                        plasma_attr.h \
+                        plasma_endian.h \
+                        plasma_feature.h \
+                        plasma_ident.h \
+                        plasma_membar.h \
+                        plasma_spin.h \
+                        plasma_stdtypes.h \
+                        plasma_sysconf.h \
+                        plasma_test.h
 	/bin/mkdir -p -m 0755 $(PREFIX_USR)/include/plasma
 	umask 333; \
 	  /bin/cp -f --preserve=timestamps $^ $(PREFIX_USR)/include/plasma/
