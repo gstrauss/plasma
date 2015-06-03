@@ -259,12 +259,12 @@ install-plasma-headers: plasma_atomic.h \
                         plasma_test.h
 	/bin/mkdir -p -m 0755 $(PREFIX_USR)/include/plasma
 	umask 333; \
-	  /bin/cp -f --preserve=timestamps $^ $(PREFIX_USR)/include/plasma/
+	  /usr/bin/install -p -m 0444 $^ $(PREFIX_USR)/include/plasma/
 install-headers: install-plasma-headers
 install-doc: COPYING CREDITS README
 	/bin/mkdir -p -m 0755 $(PREFIX_USR)/share/doc/plasma
 	umask 333; \
-	  /bin/cp -f --preserve=timestamps $^ $(PREFIX_USR)/share/doc/plasma/
+	  /usr/bin/install -p -m 0444 $^ $(PREFIX_USR)/share/doc/plasma/
 install: $(PREFIX_USR)/lib$(LIB_BITS)/libplasma.so \
          install-headers
 
