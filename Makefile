@@ -115,7 +115,7 @@ ifeq ($(OSNAME),Linux)
   endif
   # earlier versions of GNU ld might not support -Wl,--hash-style,gnu
   # (safe to remove -Wl,--hash-style,gnu for RedHat Enterprise 4)
-  LDFLAGS+=-Wl,-O,1 -Wl,--hash-style,gnu -Wl,-z,relro,-z,now
+  LDFLAGS+=-lpthread -Wl,-O,1 -Wl,--hash-style,gnu -Wl,-z,relro,-z,now
   # Linux on POWER CPU with gcc < 4.7 and 32-bit compilation requires
   # modification to Makefile to replace instances of -m32 with -m32 -mpowerpc64
   # for plasma_atomic.h support for atomic operations on 8-byte entities
