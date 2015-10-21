@@ -23,7 +23,7 @@
 #define INCLUDED_PLASMA_STDTYPES_H
 
 #include "plasma_feature.h"
-#include "plasma_attr.h"    
+#include "plasma_attr.h"
 PLASMA_ATTR_Pragma_once
 
 
@@ -71,6 +71,19 @@ PLASMA_ATTR_Pragma_once
  * MSC-specific width-based integral types
  *   http://msdn.microsoft.com/en-us/library/29dh1w7z%28VS.80%29.aspx
  */
+
+/*(provide C99 macros from stdint.h no longer restricted to C as of C11/C++11)*/
+#ifdef __cplusplus
+#ifndef PLASMA_STDTYPES_NO_STDC_MACROS
+#ifndef __STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS
+#endif
+#ifndef __STDC_CONSTANT_MACROS
+#define __STDC_CONSTANT_MACROS
+#endif
+#endif
+#endif
+
 #if defined(__STDC_VERSION__) && __STDC_VERSION__-0 >= 199901L /* C99 */
 #include <stdint.h>
 #elif defined(__cplusplus) && __cplusplus >= 201103L /* C++11 */
