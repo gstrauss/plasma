@@ -324,7 +324,7 @@ struct plasma_spin_lock_t {
 /* default spin lock macro implementation */
 #ifndef PLASMA_SPIN_LOCK_INITIALIZER
 
-#ifdef __STDC_C99
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__-0 >= 199901L) /* C99 */
 #define PLASMA_SPIN_LOCK_INITIALIZER { .lck = PLASMA_ATOMIC_LOCK_INITIALIZER, \
                                        .udata32 = 0, \
                                        .udata64 = 0 }
@@ -390,7 +390,7 @@ struct plasma_spin_tktlock_t {
 #define PLASMA_SPIN_TKTLOCK_MASK(x)      ((x) &  PLASMA_SPIN_TKTLOCK_TKTMAX)
 #define PLASMA_SPIN_TKTLOCK_SHIFT(x)     ((x) >> 16)
 
-#ifdef __STDC_C99
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__-0 >= 199901L) /* C99 */
 #define PLASMA_SPIN_TKTLOCK_INITIALIZER {.lck.u = 0, .udata32 = 0, .udata64 = 0}
 #else
 #define PLASMA_SPIN_TKTLOCK_INITIALIZER { { 0 }, 0, 0 }
@@ -516,7 +516,7 @@ struct plasma_spin_taglock_t {
 #define PLASMA_SPIN_TAGLOCK_UNLOCKVAL(x) ((x) & ~PLASMA_SPIN_TAGLOCK_ORVAL)
 #define PLASMA_SPIN_TAGLOCK_LOCKVAL(x)   ((x) |  PLASMA_SPIN_TAGLOCK_ORVAL)
 
-#ifdef __STDC_C99
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__-0 >= 199901L) /* C99 */
 #define PLASMA_SPIN_TAGLOCK_INITIALIZER { .lck = 0, .tag = 0, .udata64 = 0 }
 #else
 #define PLASMA_SPIN_TAGLOCK_INITIALIZER { 0, 0, 0 }
