@@ -228,6 +228,15 @@
 #endif
 #endif
 
+#ifndef __attribute_returns_nonnull__
+#if __has_attribute(returns_nonnull) \
+ || __GNUC_PREREQ(4,9)
+#define __attribute_returns_nonnull__  __attribute__((__returns_nonnull__))
+#else
+#define __attribute_returns_nonnull__
+#endif
+#endif
+
 #ifndef __attribute_malloc__
 #if __has_attribute(malloc) \
  || __GNUC_PREREQ(2,96) \
@@ -244,12 +253,30 @@
 #endif
 #endif
 
+#ifndef __attribute_alloc_align__
+#if __has_attribute(alloc_align) \
+ || __GNUC_PREREQ(4,9)
+#define __attribute_alloc_align__(pos)  __attribute__((__alloc_align__ pos))
+#else
+#define __attribute_alloc_align__(pos)
+#endif
+#endif
+
 #ifndef __attribute_alloc_size__
 #if __has_attribute(alloc_size) \
  || __GNUC_PREREQ(4,3)
-#define __attribute_alloc_size__(pos)  __attribute__((__alloc_size__(pos)))
+#define __attribute_alloc_size__(pos)  __attribute__((__alloc_size__ pos))
 #else
 #define __attribute_alloc_size__(pos)
+#endif
+#endif
+
+#ifndef __attribute_assume_aligned__
+#if __has_attribute(assume_aligned) \
+ || __GNUC_PREREQ(4,9)
+#define __attribute_assume_aligned__(x)  __attribute__((__assume_aligned__ x))
+#else
+#define __attribute_assume_aligned__(x)
 #endif
 #endif
 
@@ -290,6 +317,15 @@
  * const, though also permit dereference of pointers passed as function args,
  * so might be used in addition to portable code marked with attribute pure,
  * provided requirements are met for pragma no_side_effect or isolated_call. */
+
+#ifndef __attribute_leaf__
+#if (__has_attribute(leaf) \
+ || __GNUC_PREREQ(4,6)) && !defined(_LIBC)
+#define __attribute_leaf__  __attribute__((__leaf__))
+#else
+#define __attribute_leaf__
+#endif
+#endif
 
 #ifndef __attribute_hot__
 #if __has_attribute(hot) \
