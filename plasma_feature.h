@@ -50,7 +50,8 @@
 #endif
 #endif
 #ifdef PLASMA_FEATURE_ENABLE_BSD_SOURCE_TO_DARWIN_C_SOURCE
-#if defined(_BSD_SOURCE) && !defined(_DARWIN_C_SOURCE)
+#if (defined(_BSD_SOURCE) || defined(_DEFAULT_SOURCE)) \
+ && !defined(_DARWIN_C_SOURCE)
 #define _DARWIN_C_SOURCE
 #endif
 #endif
@@ -191,6 +192,7 @@
  * Feature Macros must be defined prior to including any headers to take effect.
  * _POSIX_C_SOURCE
  * _XOPEN_SOURCE
+ * _DEFAULT_SOURCE
  * _SVID_SOURCE
  * _BSD_SOURCE
  * ... and many more  (XXX: add publicly available links to standards)
