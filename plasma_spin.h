@@ -230,6 +230,7 @@ PLASMA_ATTR_Pragma_once
   #include <TargetConditionals.h>
   #if TARGET_OS_MAC
     #include <mach/thread_switch.h>
+    #include <sched.h>
     #undef  plasma_spin_yield
     #define plasma_spin_yield() \
     do {if (thread_switch(THREAD_NULL,SWITCH_OPTION_DEPRESS,1) != KERN_SUCCESS \
