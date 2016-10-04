@@ -163,7 +163,7 @@
   #endif
 #elif (defined(__APPLE__) && defined(__MACH__)) \
    || defined(__FreeBSD__) || defined(__NetBSD__) \
-   || defined(__OpenBSD__) || defined(__DragonflyBSD__)
+   || defined(__OpenBSD__) || defined(__DragonFly__)
   /* *BSD, MacOSX (Darwin) use 64-bit off_t in both 32-bit and 64-bit compile
    * (BSD 4.4 and later) */
   #ifdef PLASMA_FEATURE_ENABLE_LARGEFILE64 /* largefile64 types, interfaces */
@@ -207,7 +207,7 @@
 #include <standards.h>
 #elif (defined(__APPLE__) && defined(__MACH__))  /* man -s 5 compat */ \
    || defined(__FreeBSD__) || defined(__NetBSD__) \
-   || defined(__OpenBSD__) || defined(__DragonflyBSD__)
+   || defined(__OpenBSD__) || defined(__DragonFly__)
 #include <sys/cdefs.h>
 #elif defined(__hpux)
 /*#include <XXX>*/

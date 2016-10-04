@@ -98,7 +98,7 @@ PLASMA_ATTR_Pragma_once
   #define __BIG_ENDIAN__ 1
   #endif
 #elif defined(__FreeBSD__) || defined(__NetBSD__) \
-   || defined(__OpenBSD__) || defined(__DragonflyBSD__)
+   || defined(__OpenBSD__) || defined(__DragonFly__)
   #include <machine/endian.h>
   #if _BYTE_ORDER == _LITTLE_ENDIAN
   #define __LITTLE_ENDIAN__ 1
@@ -166,7 +166,7 @@ PLASMA_ATTR_Pragma_once
 #define plasma_endian_swap32p(x)  __bswap_32(*(x))
 #define plasma_endian_swap64p(x)  __bswap_64(*(x))
 
-#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__DragonflyBSD__)
+#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__DragonFly__)
 
 #include <machine/endian.h>
 /* http://fxr.watson.org/fxr/source/sys/endian.h */
