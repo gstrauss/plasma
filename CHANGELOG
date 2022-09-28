@@ -1,5 +1,9 @@
 plasma change log
 
+plasma v0.11 (2022.09.28)
+- plasma_attr: define __attribute_nonnull__() as function macro
+_ plasma_attr: define __attribute_fallthrough__
+
 plasma v0.10 (2015.01.22)
 - create plasma project from https://github.com/gstrauss/mcdb
 - plasma_atomic: initial support for gcc on POWER cpu
