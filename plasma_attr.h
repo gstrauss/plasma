@@ -213,19 +213,15 @@
 #ifndef __attribute_nonnull__
 #if __has_attribute(nonnull) \
  || __GNUC_PREREQ(3,3)
-#define __attribute_nonnull__  __attribute__((__nonnull__))
+#define __attribute_nonnull__(params)  __attribute__((__nonnull__ params))
 #else
-#define __attribute_nonnull__
+#define __attribute_nonnull__(params)
 #endif
 #endif
 
+/*(deprecated; compat with older plasma macro)*/
 #ifndef __attribute_nonnull_x__
-#if __has_attribute(nonnull) \
- || __GNUC_PREREQ(3,3)
-#define __attribute_nonnull_x__(x)  __attribute__((__nonnull__ x))
-#else
-#define __attribute_nonnull_x__(x)
-#endif
+#define __attribute_nonnull_x__(x)  __attribute_nonnull__(x)
 #endif
 
 #ifndef __attribute_returns_nonnull__

@@ -642,7 +642,7 @@ extern "C" {
  * - coerce values into registers or at least variables (instead of constants),
  *   (address of var and/or integer promotion required for some intrinsics) */
 
-__attribute_nonnull_x__((1))
+__attribute_nonnull__((1))
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 bool
@@ -668,7 +668,7 @@ plasma_atomic_CAS_ptr (void ** const ptr, void *cmpval, void * const newval)
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 bool
@@ -686,7 +686,7 @@ plasma_atomic_CAS_64 (uint64_t * const ptr,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 bool
@@ -703,7 +703,7 @@ plasma_atomic_CAS_32 (uint32_t * const ptr,
 }
 #endif
 
-__attribute_nonnull_x__((1))
+__attribute_nonnull__((1))
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -729,7 +729,7 @@ plasma_atomic_CAS_ptr_val (void ** const ptr, void *cmpval,void * const newval)
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -747,7 +747,7 @@ plasma_atomic_CAS_64_val (uint64_t * const ptr,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -1256,7 +1256,7 @@ plasma_atomic_CAS_32_val (uint32_t * const ptr,
                                                cast)
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -1289,7 +1289,7 @@ plasma_atomic_fetch_add_ptr (void ** const ptr, ptrdiff_t addval,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -1318,7 +1318,7 @@ plasma_atomic_fetch_add_u64 (uint64_t * const ptr, uint64_t addval,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -1355,7 +1355,7 @@ plasma_atomic_fetch_add_u32 (uint32_t * const ptr, uint32_t addval,
  * (leverage plasma_atomic_fetch_add_*() if compiler builtin is not available)
  */
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -1385,7 +1385,7 @@ plasma_atomic_fetch_sub_ptr (void ** const ptr, ptrdiff_t subval,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -1414,7 +1414,7 @@ plasma_atomic_fetch_sub_u64 (uint64_t * const ptr, uint64_t subval,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -1478,7 +1478,7 @@ plasma_atomic_fetch_sub_u32 (uint32_t * const ptr, uint32_t subval,
                                                cast)
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -1511,7 +1511,7 @@ plasma_atomic_fetch_or_ptr (void ** const ptr, uintptr_t orval,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -1540,7 +1540,7 @@ plasma_atomic_fetch_or_u64 (uint64_t * const ptr, uint64_t orval,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -1604,7 +1604,7 @@ plasma_atomic_fetch_or_u32 (uint32_t * const ptr, uint32_t orval,
                                                cast)
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -1637,7 +1637,7 @@ plasma_atomic_fetch_and_ptr (void ** const ptr, uintptr_t andval,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -1666,7 +1666,7 @@ plasma_atomic_fetch_and_u64 (uint64_t * const ptr, uint64_t andval,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -1730,7 +1730,7 @@ plasma_atomic_fetch_and_u32 (uint32_t * const ptr, uint32_t andval,
                                                cast)
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -1763,7 +1763,7 @@ plasma_atomic_fetch_xor_ptr (void ** const ptr, uintptr_t xorval,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -1792,7 +1792,7 @@ plasma_atomic_fetch_xor_u64 (uint64_t * const ptr, uint64_t xorval,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -2143,7 +2143,7 @@ PLASMA_ATTR_Pragma_rarely_called(plasma_atomic_fetch_op_notimpl)
         plasma_atomic_load_explicit_szof((ptr), (memmodel))
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -2169,7 +2169,7 @@ plasma_atomic_load_64_impl(const void * const restrict ptr,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -2465,7 +2465,7 @@ plasma_atomic_load_32_impl(const void * const restrict ptr,
 #define plasma_atomic_compare_exchange_n_32_ucast \
         plasma_atomic_compare_exchange_n_32
 #else  /* !(__has_builtin(__atomic_compare_exchange_n) || __GNUC_PREREQ(4,7)) */
-__attribute_nonnull_x__((1,2))
+__attribute_nonnull__((1,2))
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 bool
@@ -2505,7 +2505,7 @@ plasma_atomic_compare_exchange_n_ptr (void ** const ptr,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 bool
@@ -2545,7 +2545,7 @@ plasma_atomic_compare_exchange_n_64 (uint64_t * const ptr,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 bool
@@ -2738,7 +2738,7 @@ plasma_atomic_compare_exchange_n_32 (uint32_t * const ptr,
 
 #else  /* !(__has_builtin(__atomic_exchange_n) || __GNUC_PREREQ(4,7)) */
 
-__attribute_nonnull_x__((1))
+__attribute_nonnull__((1))
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 void *
@@ -2772,7 +2772,7 @@ plasma_atomic_exchange_n_ptr (void ** const ptr, void * const newval,
 #endif
 
 #ifndef plasma_atomic_not_implemented_64
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint64_t
@@ -2806,7 +2806,7 @@ plasma_atomic_exchange_n_64 (uint64_t * const ptr, const uint64_t newval,
 #endif
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((3))
 PLASMA_ATOMIC_C99INLINE
 uint32_t
@@ -2875,7 +2875,7 @@ plasma_atomic_exchange_n_32 (uint32_t * const ptr, const uint32_t newval,
 #define PLASMA_ATOMIC_LOCK_INITIALIZER 0
 #define plasma_atomic_lock_init(ptr) (*(ptr) = 0)
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((1))
 PLASMA_ATOMIC_C99INLINE
 void
@@ -2890,7 +2890,7 @@ plasma_atomic_lock_release (uint32_t * const ptr)
 }
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_regparm__((1))
 PLASMA_ATOMIC_C99INLINE
 bool

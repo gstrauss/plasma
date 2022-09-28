@@ -78,14 +78,14 @@ plasma_test_realloc (void *ptr, size_t size);
 
 
 __attribute_cold__
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_noinline__
 int
 plasma_test_cond_failure (const char *func, const int line, const char *errstr);
 
 
 __attribute_cold__
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_noinline__
 int
 plasma_test_cond_idx_failure (const char *func, const int line,
@@ -94,7 +94,7 @@ plasma_test_cond_idx_failure (const char *func, const int line,
 
 __attribute_cold__
 __attribute_noinline__
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_noreturn__
 void
 plasma_test_perror_abort (const char *func, const int line,
@@ -102,7 +102,7 @@ plasma_test_perror_abort (const char *func, const int line,
 
 
 __attribute_noinline__
-__attribute_nonnull_x__((2))
+__attribute_nonnull__((2))
 void
 plasma_test_nthreads (const int nthr, void *(*thr_func)(void *),
                       void **thr_args, void **thr_rv);

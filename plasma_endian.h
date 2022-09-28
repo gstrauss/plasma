@@ -472,7 +472,7 @@ plasma_endian_swap16_func (const uint16_t x);
 
 #ifndef plasma_endian_swap16p_funcmacro
 #define plasma_endian_swap16p_func plasma_endian_swap16p_func
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_nothrow__
 __attribute_pure__
 PLASMA_ENDIAN_C99INLINE
@@ -524,7 +524,7 @@ plasma_endian_swap32_func (const uint32_t x);
 
 #ifndef plasma_endian_swap32p_funcmacro
 #define plasma_endian_swap32p_func plasma_endian_swap32p_func
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_nothrow__
 __attribute_pure__
 PLASMA_ENDIAN_C99INLINE
@@ -576,7 +576,7 @@ plasma_endian_swap64_func (const uint64_t x);
 
 #ifndef plasma_endian_swap64p_funcmacro
 #define plasma_endian_swap64p_func plasma_endian_swap64p_func
-__attribute_nonnull__
+__attribute_nonnull__()
 __attribute_nothrow__
 __attribute_pure__
 PLASMA_ENDIAN_C99INLINE

@@ -353,12 +353,12 @@ struct plasma_spin_lock_t {
 
 #ifndef plasma_spin_lock_acquire_spinloop
 /*(plasma_spin_lock_acquire_spinloop() always returns true)*/
-__attribute_nonnull__
+__attribute_nonnull__()
 bool
 plasma_spin_lock_acquire_spinloop (plasma_spin_lock_t * const spin);
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 bool
 plasma_spin_lock_acquire_spindecay (plasma_spin_lock_t * const spin,
                                     int pause1, int pause32, int yield);
@@ -398,7 +398,7 @@ struct plasma_spin_tktlock_t {
 #endif
 #define plasma_spin_tktlock_init(t) ((t)->lck.u=0,(t)->udata32=0,(t)->udata64=0)
 
-__attribute_nonnull__
+__attribute_nonnull__()
 PLASMA_SPIN_C99INLINE
 bool
 plasma_spin_tktlock_is_free (const plasma_spin_tktlock_t * const restrict spin);
@@ -414,13 +414,13 @@ plasma_spin_tktlock_is_free (const plasma_spin_tktlock_t * const restrict spin)
 
 /*(plasma_spin_tktlock_acquire_spinloop() always returns true)*/
 __attribute_noinline__
-__attribute_nonnull__
+__attribute_nonnull__()
 bool
 plasma_spin_tktlock_acquire_spinloop (plasma_spin_tktlock_t *
                                         const restrict spin, uint32_t tkt);
 
 /*(plasma_spin_tktlock_acquire() always returns true)*/
-__attribute_nonnull__
+__attribute_nonnull__()
 PLASMA_SPIN_C99INLINE
 bool
 plasma_spin_tktlock_acquire (plasma_spin_tktlock_t * const restrict spin);
@@ -444,7 +444,7 @@ plasma_spin_tktlock_acquire (plasma_spin_tktlock_t * const restrict spin)
 }
 #endif
 
-__attribute_nonnull__
+__attribute_nonnull__()
 PLASMA_SPIN_C99INLINE
 void
 plasma_spin_tktlock_release (plasma_spin_tktlock_t * const restrict spin);
@@ -537,7 +537,7 @@ struct plasma_spin_taglock_t {
 /* NOTE: plasma_spin_taglock_acquire_try() is *unfair*; avoid under contention
  * (e.g. caller might first check lock using plasma_spin_taglock_is_contended()
  *  or maintain a flag in separate cache line to call acquire vs acquire_try) */
-__attribute_nonnull__
+__attribute_nonnull__()
 PLASMA_SPIN_C99INLINE
 bool
 plasma_spin_taglock_acquire_try (plasma_spin_taglock_t *
@@ -574,19 +574,19 @@ plasma_spin_taglock_acquire_try (plasma_spin_taglock_t * const restrict taglock)
 #endif
 
 
-__attribute_nonnull__
+__attribute_nonnull__()
 bool
 plasma_spin_taglock_acquire (plasma_spin_taglock_t * const restrict taglock);
 
 /* NOTE: plasma_spin_taglock_acquire_urgent() is *unfair*
  * (but that is the point); avoid many urgent contenders */
-__attribute_nonnull__
+__attribute_nonnull__()
 bool
 plasma_spin_taglock_acquire_urgent (plasma_spin_taglock_t *
                                       const restrict taglock);
 
 
-__attribute_nonnull__
+__attribute_nonnull__()
 PLASMA_SPIN_C99INLINE
 void
 plasma_spin_taglock_release (plasma_spin_taglock_t * const restrict taglock);
