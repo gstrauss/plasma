@@ -492,6 +492,15 @@
 #endif
 #endif
 
+#ifndef __attribute_fallthrough__
+#if __has_attribute(fallthrough) \
+ || __GNUC_PREREQ(7,0)
+#define __attribute_fallthrough__  __attribute__((__fallthrough__));
+#else
+#define __attribute_fallthrough__  /* fall through */
+#endif
+#endif
+
 #ifndef __attribute_regparm__
 #if __has_attribute(regparm) \
  || (defined(__GNUC__) && (defined(__i386__) || defined(__x86_64__)))
